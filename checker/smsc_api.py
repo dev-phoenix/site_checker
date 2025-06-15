@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 # SMSC.RU API (smsc.ru) версия 2.0 (03.07.2019)
 
+import os
 from datetime import datetime
 from time import sleep
 import smtplib
+
+from dotenv import load_dotenv
 
 try:
 	from urllib import urlopen, quote
@@ -11,9 +14,11 @@ except ImportError:
 	from urllib.request import urlopen
 	from urllib.parse import quote
 
+load_dotenv()
+
 # Константы для настройки библиотеки
-SMSC_LOGIN = ""					# логин клиента
-SMSC_PASSWORD = ""				# пароль клиента. Если передан пустой логин, то SMSC_PASSWORD используется, как API ключ, вместо логина и пароля
+SMSC_LOGIN = os.getenv('SMSC_LOGIN')					# логин клиента
+SMSC_PASSWORD = os.getenv('SMSC_PASSWORD')				# пароль клиента. Если передан пустой логин, то SMSC_PASSWORD используется, как API ключ, вместо логина и пароля
 SMSC_POST = False				# использовать метод POST
 SMSC_HTTPS = False				# использовать HTTPS протокол
 SMSC_CHARSET = "utf-8"			# кодировка сообщения (windows-1251 или koi8-r), по умолчанию используется utf-8

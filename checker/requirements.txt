@@ -16,6 +16,7 @@ platformdirs==4.3.6
 pycodestyle==2.12.1
 pyflakes==3.2.0
 pylint==3.2.7
+python-dotenv==1.0.1
 quote==3.0
 requests==2.32.4
 tomli==2.2.1
