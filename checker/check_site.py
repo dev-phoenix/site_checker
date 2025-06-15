@@ -14,7 +14,7 @@ import sqlite3
 import requests
 from datetime import datetime as dt
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv # type: ignore
 
 from smsc_api import SMSC
 from check_db import check_last_status
@@ -25,8 +25,10 @@ load_dotenv()
 
 # Список проверяемых сайтов:
 urls_tocheck = []
-urls_tocheck.append("https://ezdy.ru/")
-urls_tocheck.append("https://chus-info.ru/")
+urls_tocheck.append("https://google.com/")
+urls_tocheck.append("https://gmail.com/")
+urls_tocheck.append("https://yandex.ru/")
+urls_tocheck.append("https://yoomoney.ru/")
 
 # ==============================
 
@@ -61,11 +63,11 @@ class SiteChecker:
     time_ok = 0
     time_fail = 0
 
-    def __init__(self, urls, dbname) -> None:
+    def __init__(self, urls: list, dbname: str) -> None:
         self.urls = urls
         self.dbname = dbname
 
-    def main(self):
+    def main(self) -> None:
         """Main process function"""
         self.con = sqlite3.connect(self.dbname)
         self.cur = self.con.cursor()
@@ -239,4 +241,4 @@ if __name__ == "__main__":
     checker.main()
 
     if SHOW_SUMMARY:
-        check_last_status()
+        check_last_status(DB_NAME)

@@ -1,10 +1,13 @@
 !*
 
 /*
-_*
-.*
 !.gitignore
 !/checker/
+!/imgs/
+
+_*
+.*
+*copy.py
 *.db
 req_*
 __pycache__

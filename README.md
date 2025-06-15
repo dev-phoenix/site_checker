@@ -24,3 +24,4 @@ python3 check_site.py
 ```sh
 python3 check_db.py 
 ```
+![stauses](./imgs/statuses.png)

@@ -18,7 +18,7 @@ DB_NAME = "site_checker.db"
 USE_DEBUG = False
 
 
-def check_last_status():
+def check_last_status(db_name: str) -> None:
     """
     look current sites statuses and last check date
     """
@@ -29,7 +29,7 @@ def check_last_status():
             return
         print(*args, **kwargs)
 
-    con = sqlite3.connect(DB_NAME)
+    con = sqlite3.connect(db_name)
     cur = con.cursor()
     res = cur.execute("SELECT * FROM site_status")
     data = res.fetchall()
@@ -48,8 +48,9 @@ def check_last_status():
     fields_row[0] = "{:^28}".format(fields[0])
     fields_row[1] = "{:^8}".format(fields[1])
     fields_row = " ".join(fields_row)
-    print(fields_row)
-    print("-" * len(fields_row))
+    print()
+    print('',fields_row)
+    print('',"-" * len(fields_row))
 
     for row in data:
         row = [f for f in row]
@@ -79,8 +80,9 @@ def check_last_status():
         fields_row[0] = "{:<28}".format(row[0])
         fields_row[1] = "{:<8}".format(row[1])
         fields_row = " ".join(fields_row)
-        print(fields_row)
+        print('',fields_row)
+    print()
 
 
 if __name__ == "__main__":
-    check_last_status()
+    check_last_status(DB_NAME)
