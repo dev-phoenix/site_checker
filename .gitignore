@@ -1,0 +1,11 @@
+!*
+
+/*
+!.gitignore
+!/checker/
+*.db
+req_*
+__pycache__
+test*
+smsapi.py
+.env

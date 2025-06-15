@@ -1,0 +1,8 @@
+certifi==2025.4.26
+charset-normalizer==3.4.2
+gazpacho==1.1
+idna==3.10
+quote==3.0
+requests==2.32.4
+urllib3==2.2.3
+urlopen==1.0.0
