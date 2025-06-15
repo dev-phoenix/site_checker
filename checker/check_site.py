@@ -9,12 +9,17 @@
 It's allows you to check is site available and notice by sms if is not
 """
 
+import os
 import sqlite3
 import requests
 from datetime import datetime as dt
 
+from dotenv import load_dotenv
+
 from smsc_api import SMSC
 from check_db import check_last_status
+
+load_dotenv()
 
 # ==============================
 
@@ -221,7 +226,7 @@ class SiteChecker:
             _print("*" * 10)
             _print(mess)
 
-            phonenum = "79124904314"
+            phonenum = os.getenv('TARGET_PHONE_NUMBER')
             sms_text = mess
             smsc = SMSC()
             r = smsc.send_sms(phonenum, sms_text)  # , sender=sender)

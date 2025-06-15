@@ -1,5 +1,6 @@
 # site_checker
-It's allows you to check is site available and notice by sms if is not
+It's allows you to check is site available and notice by sms if is not  
+Uses sms service: smsc.ru
 
 ### start:
 ```
@@ -9,8 +10,9 @@ cd checker
 
 ### create file `.env` and fill variables:
 ```
+TARGET_PHONE_NUMBER = "" # client phone number
 SMSC_LOGIN = ""
-SMSC_PASSWORD = ""
+SMSC_PASSWORD = "" # API key if login is empty
 ```
 
 ### check is site status = 200 ad send sms if not:
