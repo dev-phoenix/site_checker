@@ -14,7 +14,7 @@ import requests
 from datetime import datetime as dt
 
 from smsc_api import SMSC
-from check_db import checkLastStatus
+from check_db import check_last_status
 
 # ==============================
 
@@ -234,4 +234,4 @@ if __name__ == "__main__":
     checker.main()
 
     if SHOW_SUMMARY:
-        checkLastStatus()
+        check_last_status()
